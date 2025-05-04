@@ -9,8 +9,8 @@ const TodoList = ({ todo, deleteTask, taskDone, done, index, editTask }) => {
     <div key={todo.id}>
       <div
         className={`${
-          done ? "font-bold bg-green-500" : "bg-gray-200"
-        } flex gap-4 max-w-xs w-80 min-h-50 max-h-max rounded-md border border-double border-slate-800 shawdow-md dark:text-gray-800`}
+          done ? "font-bold bg-green-500" : "bg-gray-500"
+        } flex gap-4 max-w-xs w-80 min-h-50 max-h-max rounded-md border border-double border-white shawdow-md dark:text-gray-900`}
       >
         <div className="flex flex-col justify-between items-center p-5">
           <div className="flex p-5">

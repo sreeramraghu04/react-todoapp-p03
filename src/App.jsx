@@ -22,7 +22,6 @@ function App() {
     } else {
       let newId = todo.length + 1;
       /* let newId = todo.length === 0 ? 1 : todo[todo.length - 1]; */
-
       let newEntry = { id: newId, title: newTask, completed: false };
       setTodos([...todo, newEntry]);
       setNewTask("");
@@ -72,22 +71,24 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 bg-gray-300 text-white w-full min-h-screen rounded-2xl shadow-md p-10">
+    
+    <div className="flex flex-col items-center gap-4 bg-gray-900 text-white w-full min-h-screen shadow-md p-10">
+      <h1 className="font-mono font-semibold mt-15 mb-5 w-[250px] text-center">"Turn plans into progress, one task at time."</h1>
       <form>
-        <div className="flex justify-center text-gray-700 bg-white w-80 h-10">
+        <div className="flex justify-center text-gray-700 bg-white w-80 h-15 rounded-md">
           <input
             type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            placeholder="Enter the task here ->"
+            placeholder="Enter the task here."
             className="text-xl font-serif w-64 ml-4 outline-none bg-transparent"
           />
           <button
             type="submit"
-            className="pl-4 font-bold mr-4 hover:cursor-pointer"
+            className="pl-6 font-bold mr-4 hover:cursor-pointer"
             onClick={addTask}
           >
-            Add
+            Add Task
           </button>
         </div>
       </form>
