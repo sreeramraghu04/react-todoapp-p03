@@ -12,8 +12,20 @@ import EditForm from "./components/EditForm";
 }; */
 
 const localData = () => {
+  //! This defines a function named localData using arrow function syntax.
+  //* It doesn’t take any parameters.
+  // It's typically used to retrieve and return saved data from the browser's localStorage.
   let list = localStorage.getItem("data");
+  //* This line tries to get a value stored in the browser’s localStorage under the key "data".
+  //?  string if the key "data" exists.
+  //* null if the key doesn’t exist.
   return list ? JSON.parse(list) : [];
+  //! This is a ternary operator (short form of if...else).
+  //* It checks:
+  // If list is truthy (i.e., not null or undefined):
+  // Use JSON.parse(list) to convert the string from localStorage into a JavaScript object (typically an array or object).
+  // If list is falsy (i.e., null or empty):
+  // Return an empty array [].
 };
 
 function App() {
@@ -54,8 +66,24 @@ function App() {
   };
 
   useEffect(() => {
+    //! This starts a React useEffect hook.
+    //* useEffect lets you perform side effects in a React component — like saving to localStorage, fetching data, etc.
+    // The function inside useEffect runs:
+    // After the component renders.
+    // Again only when the values in the dependency array change.
     localStorage.setItem("data", JSON.stringify(todo));
+    //! This line saves the todo data into the browser's localStorage.
+    //* Let's break it down further:
+    // localStorage.setItem(key, value)
+    // key: "data" — the name under which we store the data.
+    // value: JSON.stringify(todo)
+    // This converts the todo array/object into a string, because localStorage can only store strings.
   }, [todo]);
+  //! This is the dependency array.
+  //* It tells React to only run the effect when todo changes.
+  //? Example:
+  // If todo was [“Buy milk”] and you add “Walk dog”, the new todo becomes [“Buy milk”, “Walk dog”].
+  // Since todo changed, useEffect runs again and updates localStorage.
 
   //! task done
   const taskDone = (id) => {
@@ -100,14 +128,14 @@ function App() {
         return item.id === id
           ? { ...item, title: editedTask, editable: !item.editable }
           : item;
-          //* Compares each task's id to the provided id.
-          // If the IDs match, this task is the one that needs to be updated.
-          //* { ...item } spreads the existing task object, keeping all its current properties.
-          // title: editedTask replaces the old title with the newly provided one (editedTask).
-          //* editable is flipped:
-          // If it was true, it becomes false (user finishes editing).
-          // If it was false, it becomes true (user enters edit mode).
-          //* This allows dynamic switching between text display and input field.
+        //* Compares each task's id to the provided id.
+        // If the IDs match, this task is the one that needs to be updated.
+        //* { ...item } spreads the existing task object, keeping all its current properties.
+        // title: editedTask replaces the old title with the newly provided one (editedTask).
+        //* editable is flipped:
+        // If it was true, it becomes false (user finishes editing).
+        // If it was false, it becomes true (user enters edit mode).
+        //* This allows dynamic switching between text display and input field.
       })
     );
   };
@@ -135,9 +163,9 @@ function App() {
             className="pl-6 font-bold mr-4 hover:cursor-pointer"
             onClick={addTask}
           >
-            //! Calls the addTask function when the button is clicked.
-            //* This function validates user input, creates a new task, and updates the state.
-            Add Task
+            //! Calls the addTask function when the button is clicked. //* This
+            function validates user input, creates a new task, and updates the
+            state. Add Task
           </button>
         </div>
       </form>
@@ -158,18 +186,15 @@ function App() {
                 index={index}
                 editTask={editTask}
               />
-              //! If todo.editable is true → Show Edit Form
-              //* Displays <EditForm />, allowing users to edit the task.
-              //? Passes todo and updateTask as props.
-              //* If todo.editable is false → Show Task List.
-              //? Displays <TodoList />, rendering the task normally.
-              //* Passes multiple props:
-              // todo → Task data.
-              //* deleteTask → Function to remove the task.
-              //? taskDone → Function to mark task as completed.
-              //* done={todo.completed} → Tracks completion status.
-              //? index → Task position
-              //* editTask → Function to toggle edit mode.
+              //! If todo.editable is true → Show Edit Form //* Displays{" "}
+              <EditForm />, allowing users to edit the task. //? Passes todo and
+              updateTask as props. //* If todo.editable is false → Show Task
+              List. //? Displays <TodoList />, rendering the task normally. //*
+              Passes multiple props: // todo → Task data. //* deleteTask →
+              Function to remove the task. //? taskDone → Function to mark task
+              as completed. //* done={todo.completed} → Tracks completion
+              status. //? index → Task position //* editTask → Function to
+              toggle edit mode.
             </div>
           );
         })}
