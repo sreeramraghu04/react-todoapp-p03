@@ -35,20 +35,26 @@ function App() {
   //! add task
   const addTask = (e) => {
     //* Defines addTask function which will be executed to add a task.
-    // `e` Parameter is included, it's not explicitly (not) used in the function. If this function is triggered by an event (like a button click), it can be used for preventing default behavior (not done here).
+    // `e` Parameter is included, it's not explicitly (not) used in the function. 
+// If this function is triggered by an event (like a button click), it can be used for preventing default behavior (not done here).
     if (!newTask) {
       //* Checks if newTask is empty.
       // newTask represents the input that user types in the task name.
       alert("Please enter a task");
-      //* Shows an alert message to the user if they tried to add a task without typing anything.Prevents empty tasks from being added.
+      //* Shows an alert message to the user if they tried to add a task without typing anything.
+// Prevents empty tasks from being added.
     } else {
       //* If newTask is not empty, the function proceeds to create a new task object.
       let newId = todo.length + 1;
       //* Generates a unique ID for the new task.{todo.length + 1} ensures each new task gets a number higher than existing ones.
       let newEntry = { id: newId, title: newTask, completed: false };
-      //* Creates a new task object:- {id:} The generated ID.{title:} Stores the text input from newTask.{completed: false} Marks the task as incomplete initially.
+      //* Creates a new task object:- 
+// {id:} The generated ID.
+// {title:} Stores the text input from newTask.
+// {completed: false} Marks the task as incomplete initially.
       setTodos([...todo, newEntry]);
-      //* Updates the state (todo) by adding the new task.{...todo} spreads the existing tasks.newEntry is appended to the list.
+      //* Updates the state (todo) by adding the new task.
+// {...todo} spreads the existing tasks.newEntry is appended to the list.
       setNewTask("");
       //* Resets the input field to empty after adding the task, so users can type a new one.
     }
@@ -56,11 +62,16 @@ function App() {
 
   //! delete task
   const deleteTask = (id) => {
-    //* Defines a function called deleteTask that takes an id as an argument.This id represents the specific task that should be removed.
+    //* Defines a function called deleteTask that takes an id as an argument.
+// This id represents the specific task that should be removed.
     setTodos(
       todo.filter((item) => {
         return item.id !== id;
-        //* Filters out the task whose id matches the given id.{todo.filter} Loops through the list of tasks (todo).Keeps only the tasks whose id does NOT match the provided id.{setTodos(...)}Updates the state (todo) with the filtered list (excluding the deleted task).React automatically re-renders the UI to reflect the change.
+        //* Filters out the task whose id matches the given id.
+// {todo.filter} Loops through the list of tasks (todo).
+// Keeps only the tasks whose id does NOT match the provided id.
+// {setTodos(...)} Updates the state (todo) with the filtered list (excluding the deleted task).
+// React automatically re-renders the UI to reflect the change.
       })
     );
   };
