@@ -163,10 +163,12 @@ function App() {
             className="pl-6 font-bold mr-4 hover:cursor-pointer"
             onClick={addTask}
           >
-            //! Calls the addTask function when the button is clicked. //* This
-            function validates user input, creates a new task, and updates the
-            state. Add Task
+            {" "}
+            Add Task
           </button>
+          {/* //! Calls the addTask function when the button is clicked This
+          //! function validates user input, creates a new task, and updates the
+          state. */}
         </div>
       </form>
       <div className="flex flex-wrap px-24 justify-center gap-4 mt-6 w-4/6">
@@ -187,14 +189,15 @@ function App() {
                 editTask={editTask}
               />
               //! If todo.editable is true → Show Edit Form //* Displays{" "}
-              <EditForm />, allowing users to edit the task. //? Passes todo and
+              <EditForm />
+              {/* //* allowing users to edit the task. //? Passes todo and
               updateTask as props. //* If todo.editable is false → Show Task
-              List. //? Displays <TodoList />, rendering the task normally. //*
-              Passes multiple props: // todo → Task data. //* deleteTask →
-              Function to remove the task. //? taskDone → Function to mark task
+              List. //? Displays <TodoList />, rendering the task normally.
+              //*Passes multiple props: // todo → Task data. //* deleteTask
+              →Function to remove the task. //? taskDone → Function to mark task
               as completed. //* done={todo.completed} → Tracks completion
               status. //? index → Task position //* editTask → Function to
-              toggle edit mode.
+              toggle edit mode. */}
             </div>
           );
         })}
