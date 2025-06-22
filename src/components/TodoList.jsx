@@ -3,7 +3,15 @@ import PublishedWithChangesIcon from "@mui/icons-material/PublishedWithChanges";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditDocumentIcon from "@mui/icons-material/EditDocument";
 
-const TodoList = ({ todo, deleteTask, taskDone, done, index, editTask }) => {
+const TodoList = ({
+  id,
+  title,
+  deleteTask,
+  completed,
+  taskDone,
+  index,
+  editTask,
+}) => {
   //! Defines a functional component named TodoList.
   //* It receives multiple props:
   // todo → The task list array.
@@ -12,17 +20,16 @@ const TodoList = ({ todo, deleteTask, taskDone, done, index, editTask }) => {
   // done → Tracks completion status.
   // index → Identifies each task position in the list.
   // editTask → Function to enable task editing.
-  console.table(todo);
   //! Logs the todo array as a table in the console.
   //* Helps debug by displaying structured data.
   return (
-    <div key={todo.id}>
+    <div key={id}>
       {/* //! Uses React's key prop to ensure efficient rendering. //* todo.id
       guarantees each task has a unique identifier, preventing unnecessary
       re-renders. */}
       <div
         className={`${
-          done ? "font-bold bg-green-500" : "bg-gray-500"
+          completed ? "font-bold bg-green-500" : "bg-gray-500"
         } flex gap-4 max-w-xs w-80 min-h-50 max-h-max rounded-md border border-double border-white shawdow-md dark:text-gray-900`}
       >
         {/* //! Dynamic Background Based on done Status //* Controls the appearance
@@ -38,8 +45,8 @@ const TodoList = ({ todo, deleteTask, taskDone, done, index, editTask }) => {
             </div>
             <div>
               <h1 className="text-2xl flex-wrap w-[200px] font-semibold tracking-wide px-2">
-                {todo.title}
-                //! displays the title from the todo list
+                {title}
+                {/* //! displays the title from the todo list */}
               </h1>
             </div>
           </div>
@@ -50,7 +57,7 @@ const TodoList = ({ todo, deleteTask, taskDone, done, index, editTask }) => {
                 //! onClick={() => taskDone(todo.id)} (Event Handler)
                 // Triggers the taskDone function when the button is clicked.
                 // todo.id ensures the correct task is marked as completed.
-                taskDone(todo.id);
+                taskDone(id);
               }}
               className="flex items-center justify-center p-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition-colors duration-200 hover:cursor-pointer"
             >
@@ -62,7 +69,7 @@ const TodoList = ({ todo, deleteTask, taskDone, done, index, editTask }) => {
                 //! onClick={() => editTask(todo.id)} (Event Handler)
                 // Triggers the taskDone function when the button is clicked.
                 // todo.id ensures the correct task is edited.
-                editTask(todo.id);
+                editTask((id));
               }}
               className="flex items-center justify-center p-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-colors duration-200 hover:cursor-pointer"
             >
@@ -74,7 +81,7 @@ const TodoList = ({ todo, deleteTask, taskDone, done, index, editTask }) => {
                 //! onClick={() => deleteTask(todo.id)} (Event Handler)
                 // Triggers the taskDone function when the button is clicked.
                 // todo.id ensures the correct task is deleted.
-                deleteTask(todo.id);
+                deleteTask(id);
               }}
               className="flex items-center justify-center p-2 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-200 hover:cursor-pointer"
             >

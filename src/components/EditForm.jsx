@@ -1,11 +1,11 @@
 import { useState } from "react";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 
-const EditForm = ({ todo, updateTask }) => {
-  const [value, setValue] = useState(todo);
+const EditForm = ({ item, updateTask }) => {
+  const [value, setValue] = useState(item.title);
   const handlesubmit = (e) => {
     e.preventDefault();
-    updateTask(value, todo.id);
+    updateTask(value, item.id);
     setValue("");
   };
   //! Defines a function named handleSubmit that takes an event (e) as an argument.
@@ -21,12 +21,12 @@ const EditForm = ({ todo, updateTask }) => {
   return (
     <div className="text-black">
       <form onSubmit={handlesubmit} action="">
-        //! Defines a form that triggers handleSubmit when submitted. //* The
-        onSubmit={handlesubmit} ensures React handles the submission instead of
-        default browser behavior.
+        {/* //! Defines a form that triggers handleSubmit when submitted.
+        TheonSubmit={handlesubmit} ensures React handles the submission instead
+        of default browser behavior. */}
         <div
           className={`${
-            todo.done ? " bg-green-600 " : "bg-gray-400"
+            item.completed ? " bg-green-600 " : "bg-gray-400"
           } max-w-xs w-80 h-50  rounded-md border border-double border-slate-900 shadow-md  dark:text-gray-800 `}
         >
           {/* //! Dynamic Background Color //* Uses template literals ({} inside
@@ -36,7 +36,7 @@ const EditForm = ({ todo, updateTask }) => {
           <div className="flex flex-col justify-between items-center p-6 space-y-8 h-full">
             <div className="flex items-center w-full justify-between space-y-2 ">
               <h2 className="text-2xl font-semibold tracking-wide bg-black text-white rounded-md px-2 mt-2">
-                {todo.id}
+                {item.id}
               </h2>
               <div className="flex justify-center w-full">
                 <input
