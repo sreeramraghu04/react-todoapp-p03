@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
 import EditForm from "./components/EditForm";
 
-/* const localData = () => {
+const localData = () => {
   let list = localStorage.getItem("data");
   if (list) {
     return JSON.parse(list);
   } else {
     return [];
   }
-}; */
+};
 
-const localData = () => {
+/* const localData = () => {
   let list = localStorage.getItem("data");
   return list ? JSON.parse(list) : [];
-}; 
+};  */
 
 //! This defines a function named localData using arrow function syntax.
 //* It doesn’t take any parameters.
@@ -74,7 +74,7 @@ function App() {
     // key: "data" — the name under which we store the data.
     // value: JSON.stringify(todo)
     // This converts the todo array/object into a string, because localStorage can only store strings.
-  }, [todo]);
+  });
   //! This is the dependency array.
   //* It tells React to only run the effect when todo changes.
   //? Example:
@@ -153,8 +153,8 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 bg-gray-900 text-white w-full min-h-screen shadow-md p-10">
-      <h1 className="font-mono font-semibold mt-15 mb-5 w-[250px] text-center">
+    <div className="flex flex-col items-center gap-4 bg-gray-300 text-white w-full min-h-screen shadow-md p-10">
+      <h1 className="text-black font-mono font-semibold mt-15 mb-5 w-[250px] text-center">
         "Turn plans into progress, one task at time."
       </h1>
       <form>
