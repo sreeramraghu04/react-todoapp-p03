@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
 import EditForm from "./components/EditForm";
 
-const localData = () => {
+/* const localData = () => {
   let list = localStorage.getItem("data");
   if (list) {
     return JSON.parse(list);
   } else {
     return [];
   }
-};
+}; */
 
-/* const localData = () => {
+const localData = () => {
   let list = localStorage.getItem("data");
   return list ? JSON.parse(list) : [];
-}; */
+}; 
 
 //! This defines a function named localData using arrow function syntax.
 //* It doesn’t take any parameters.
@@ -140,14 +140,14 @@ function App() {
         return item.id === id
           ? { ...item, title: editedTask, editable: !item.editable }
           : item;
-        //* Compares each task's id to the provided id.
-        // If the IDs match, this task is the one that needs to be updated.
-        //* { ...item } spreads the existing task object, keeping all its current properties.
+        //! Compares each task's id to the provided id.
+        //* If the IDs match, this task is the one that needs to be updated.
+        // { ...item } spreads the existing task object, keeping all its current properties.
         // title: editedTask replaces the old title with the newly provided one (editedTask).
-        //* editable is flipped:
-        // If it was true, it becomes false (user finishes editing).
-        // If it was false, it becomes true (user enters edit mode).
-        //* This allows dynamic switching between text display and input field.
+        //? editable is flipped:
+        //* If it was true, it becomes false (user finishes editing).
+        //* If it was false, it becomes true (user enters edit mode).
+        // This allows dynamic switching between text display and input field.
       })
     );
   };

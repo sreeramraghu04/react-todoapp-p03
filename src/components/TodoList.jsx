@@ -24,7 +24,8 @@ const TodoList = ({
   //* Helps debug by displaying structured data.
   return (
     <div key={id}>
-      {/* //! Uses React's key prop to ensure efficient rendering. //* todo.id
+      {/* //! Uses React's key prop to ensure efficient rendering. 
+      //* todo.id
       guarantees each task has a unique identifier, preventing unnecessary
       re-renders. */}
       <div
@@ -32,7 +33,8 @@ const TodoList = ({
           completed ? "font-bold bg-green-500" : "bg-gray-500"
         } flex gap-4 max-w-xs w-80 min-h-50 max-h-max rounded-md border border-double border-white shawdow-md dark:text-gray-900`}
       >
-        {/* //! Dynamic Background Based on done Status //* Controls the appearance
+        {/* //! Dynamic Background Based on done Status 
+        //*  Controls the appearance
         of the task block dynamically. //* If done is true → Task is completed →
         font-bold bg-green-500 (Bold + Green). //* If done is false → Task is
         incomplete → bg-gray-500 (Gray background). */}
@@ -46,7 +48,7 @@ const TodoList = ({
             <div>
               <h1 className="text-2xl flex-wrap w-[200px] font-semibold tracking-wide px-2">
                 {title}
-                {/* //! displays the title from the todo list */}
+                {/* // displays the title from the todo list */}
               </h1>
             </div>
           </div>
@@ -54,9 +56,9 @@ const TodoList = ({
             {/* //! done task */}
             <button
               onClick={() => {
-                //! onClick={() => taskDone(todo.id)} (Event Handler)
+                /* //! onClick={() => taskDone(todo.id)} (Event Handler)
                 // Triggers the taskDone function when the button is clicked.
-                // todo.id ensures the correct task is marked as completed.
+                // todo.id ensures the correct task is marked as completed. */
                 taskDone(id);
               }}
               className="flex items-center justify-center p-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition-colors duration-200 hover:cursor-pointer"
@@ -66,10 +68,10 @@ const TodoList = ({
             {/* //! edit task */}
             <button
               onClick={() => {
-                //! onClick={() => editTask(todo.id)} (Event Handler)
+                /* //! onClick={() => editTask(todo.id)} (Event Handler)
                 // Triggers the taskDone function when the button is clicked.
-                // todo.id ensures the correct task is edited.
-                editTask((id));
+                // todo.id ensures the correct task is edited. */
+                editTask(id);
               }}
               className="flex items-center justify-center p-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-colors duration-200 hover:cursor-pointer"
             >
@@ -78,9 +80,9 @@ const TodoList = ({
             {/* //! delete task */}
             <button
               onClick={() => {
-                //! onClick={() => deleteTask(todo.id)} (Event Handler)
+                /*  //! onClick={() => deleteTask(todo.id)} (Event Handler)
                 // Triggers the taskDone function when the button is clicked.
-                // todo.id ensures the correct task is deleted.
+                // todo.id ensures the correct task is deleted. */
                 deleteTask(id);
               }}
               className="flex items-center justify-center p-2 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-colors duration-200 hover:cursor-pointer"
