@@ -1,6 +1,6 @@
 # To-Do App
 
-A simple and responsive To-Do list application built with **React** and **Tailwind CSS**, using **useState**, **useEffect** for lifecycle handling and **localStorage** for data persistence.
+A simple and responsive To-Do list application built with **React** and **Tailwind CSS**, using **useState**, **useEffect** for lifecycle handling, and **localStorage** for data persistence.
 
 ## 🚀 Features
 
@@ -28,4 +28,4 @@ A simple and responsive To-Do list application built with **React** and **Tailwi
 
 ## Demo Link
 
-[Live Demo](https://ram-react-todoapp.netlify.app/)
+[Live Demo](https://todoapp.sreeramraghu.online/)
