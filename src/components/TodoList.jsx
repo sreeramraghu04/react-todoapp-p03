@@ -16,7 +16,7 @@ const TodoList = ({
   //* It receives multiple props:
   // todo → The task list array.
   // deleteTask → Function to remove a task.
-  //taskDone → Function to mark a task as completed.
+  // taskDone → Function to mark a task as completed.
   // done → Tracks completion status.
   // index → Identifies each task position in the list.
   // editTask → Function to enable task editing.
@@ -25,19 +25,16 @@ const TodoList = ({
   return (
     <div key={id}>
       {/* //! Uses React's key prop to ensure efficient rendering. 
-      //* todo.id
-      guarantees each task has a unique identifier, preventing unnecessary
-      re-renders. */}
+      //* todo.id guarantees each task has a unique identifier, preventing unnecessary re-renders. */}
       <div
         className={`${
           completed ? "font-bold bg-green-500" : "bg-gray-500"
         } flex gap-4 max-w-xs w-80 min-h-50 max-h-max rounded-md border border-double border-white shawdow-md dark:text-gray-900`}
       >
         {/* //! Dynamic Background Based on done Status 
-        //*  Controls the appearance
-        of the task block dynamically. //* If done is true → Task is completed →
-        font-bold bg-green-500 (Bold + Green). //* If done is false → Task is
-        incomplete → bg-gray-500 (Gray background). */}
+        //*  Controls the appearance of the task block dynamically. 
+        //* If done is true → Task is completed → font-bold bg-green-500 (Bold + Green). 
+        //* If done is false → Task is incomplete → bg-gray-500 (Gray background). */}
         <div className="flex flex-col justify-between items-center p-5">
           <div className="flex p-5">
             <div>
