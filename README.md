@@ -28,4 +28,4 @@ A simple and responsive To-Do list application built with **React** and **Tailwi
 
 ## Demo Link
 
-[Live Demo](https://todoapp.sreeramraghu.online/)
+[Live Demo](https://ram-react-todoapp.netlify.app/)
